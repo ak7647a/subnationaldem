@@ -1,0 +1,34 @@
+---
+title: "Untitled"
+author: "Abhishu"
+format: revealjs
+---
+
+
+```{r}
+# packages and libraries
+ library(tidyverse)
+ library(ggplot2)
+
+# data
+load('SED.RData')
+ 
+# limit to my region of CENTRO, ARG
+ df <- data_sdi |>
+   filter(region_name == 'CENTRO')
+```
+
+# analysis slide
+
+```{r}
+# graph dem by region over time
+
+df|>
+ggplot( 
+  aes( x= year, y= SUR_index_sub_exe , colour = state_name)
+  ) +
+geom_line() +
+theme_minimal()
+
+
+```
